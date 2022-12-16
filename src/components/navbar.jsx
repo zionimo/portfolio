@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import styled from "styled-components";
+
+import { Link } from "react-router-dom";
+import "../style/Navbar.css";
 
 const Navbar = () => {
   const [time, setTime] = useState(new Date());
@@ -21,19 +23,41 @@ const Navbar = () => {
     }, 1000);
   }, []);
 
+  // 로그인 유무를 알기 위함
+  const login = false;
+
   return (
-    <NavbarStyle>
-      <div>
+    <div className="nav">
+      <div className="nav_container">
         <h3>{printClock()}</h3>
+
+        <div className="nav_list">
+          {login ? (
+            <div>
+              {/* 로그인 했을 때 보이는 화면 
+          단, 관리자페이지는 홈페이지 주인만 볼 수 있게 함 */}
+
+              <Link to="/">홈</Link>
+              <Link to="">마이페이지</Link>
+              <Link to="">포스트</Link>
+              <Link to="">방명록</Link>
+              <Link to="">관리자 페이지</Link>
+              <Link to="">로그아웃</Link>
+              <Link to=""></Link>
+            </div>
+          ) : (
+            <div>
+              {/* 로그인 되어있지 않을 때 보이는 링크 */}
+              <Link to="/">홈</Link>
+              <Link>포스트</Link>
+              <Link to="/gest">방명록</Link>
+              <Link to="/loginform">로그인</Link>
+            </div>
+          )}
+        </div>
       </div>
-    </NavbarStyle>
+    </div>
   );
 };
 
 export default Navbar;
-
-const NavbarStyle = styled.div`
-  background-color: green;
-  margin: 1
-  text-align: center;
-`;

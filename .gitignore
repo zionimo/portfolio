@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# env파일 넣어주어서 깃에 올라가지 않게 하기
+# 공동작업 중이라면 팀원에게도 안보이니 정보 공유하기
+.env

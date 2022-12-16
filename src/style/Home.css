@@ -1,0 +1,16 @@
+.home {
+  position: fixed;
+  top: 5rem;
+}
+
+.home-img {
+  width: 10rem;
+  height: 1000px;
+  background-size: cover;
+}
+
+.home_text {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}

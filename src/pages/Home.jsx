@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import styled from "styled-components";
-
+import Navbar from "../components/Navbar";
+import "../style/Home.css";
 const Home = () => {
   // 문장출력
   const [phrase, setPhrase] = useState([
@@ -35,10 +35,10 @@ const Home = () => {
   };
 
   // 슬릭에 출력할 배경이미지 배열
-  const [imageList, setImageList] = useState(["londonSS.jpg", "newyorkFW.jpg"]);
+  const [imageList, setImageList] = useState(["1.jpg", "2.jpg", "3.jpg"]);
 
   return (
-    <div>
+    <div className="home">
       {/** useMemo를 사용했을 경우,
        * 그 함수의 return값이 변수 안에 들어가게된다.
        * 사용할 때 변수이름으로만 사용 */}
@@ -46,43 +46,31 @@ const Home = () => {
       {/* 슬릭슬라이더 */}
       <Slider {...settings}>
         {/* map을 사용해서 출력 - 배열 */}
-        {imageList.map((image) => (
-          <div>
+        {imageList.map((image, index) => (
+          <div key={index}>
             {/* 이미지공간 */}
-            <ImgArea>
-              <div
-                style={{
-                  // url와 괄호는 문자열로 만듦
-                  backgroundImage: "url(" + require("../img/" + image) + ")",
-                }}
-              >
-                {/* 텍스트 공간 */}
-                <TextArea>
-                  <div>
-                    <h1>{printPhrase.text}</h1>
-                    <span>{printPhrase.site}</span>
-                    <Link style={{ textDecoration: "none", color: "black", border: "solid 1px black" }}>VIEW</Link>
-                  </div>
-                </TextArea>
+            <div
+              className="home_img"
+              style={{
+                // url와 괄호는 문자열로 만듦
+                backgroundImage: "url(" + require("../img/" + image) + ")",
+              }}
+            >
+              {/* 텍스트 공간 */}
+
+              <div className="home_text">
+                <h1>{printPhrase.text}</h1>
+                <span>{printPhrase.site}</span>
+                <Link style={{ textDecoration: "none", color: "black", border: "solid 1px black" }}>VIEW</Link>
               </div>
-            </ImgArea>
+            </div>
           </div>
         ))}
       </Slider>
+
+      <Navbar />
     </div>
   );
 };
 
 export default Home;
-
-const ImgArea = styled.div`
-  width: 100vw;
-  height: 1000px;
-  background-size: cover;
-`;
-
-const TextArea = styled.div`
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-`;

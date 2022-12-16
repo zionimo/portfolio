@@ -1,0 +1,23 @@
+.nav {
+  background-color: none;
+  position: fixed;
+  top: 0;
+  height: 5rem;
+}
+
+.nav_container {
+  width: 100vw;
+  display: flex;
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: nowrap;
+  width: 100vw;
+}
+
+.nav_list a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
