@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
+import currentUser, { userLogout } from "../modules/currentUser";
 import "../style/Navbar.css";
 
 const Navbar = () => {
@@ -25,14 +27,19 @@ const Navbar = () => {
 
   // 로그인 유무를 알기 위함
   const login = false;
+  // 리덕스의 state 값을 가져와서 확인
+  // user값을 가져와서 확인함
+  // state값에 접근해서 state안에 있는 currentUser라는 자바스크립트로 접근해서 전체값을 가져와 사용
+  const user = useSelector((state) => state.currentUser);
 
+  const dispatch = useDispatch();
   return (
     <div className="nav">
       <div className="nav_container">
         <h3>{printClock()}</h3>
 
         <div className="nav_list">
-          {login ? (
+          {user ? (
             <div>
               {/* 로그인 했을 때 보이는 화면 
           단, 관리자페이지는 홈페이지 주인만 볼 수 있게 함 */}
@@ -42,7 +49,13 @@ const Navbar = () => {
               <Link to="">포스트</Link>
               <Link to="">방명록</Link>
               <Link to="">관리자 페이지</Link>
-              <Link to="">로그아웃</Link>
+              <Link
+                onClick={() => {
+                  dispatch(userLogout());
+                }}
+              >
+                로그아웃
+              </Link>
               <Link to=""></Link>
             </div>
           ) : (

@@ -6,8 +6,8 @@ import "../style/Home.css";
 const Home = () => {
   // 문장출력
   const [phrase, setPhrase] = useState([
-    { text: "About the Autumn/Winter 2022/2023", site: "New York Fashion Week" },
-    { text: "About the Spring/Summer 2023", site: "London Fashion Week" },
+    { text: "text1", site: "site1" },
+    { text: "text2", site: "site2" },
   ]);
   // 🎇참고사이트 팬톤: https://www.pantone.kr/report_landing.html
 
