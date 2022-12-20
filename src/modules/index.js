@@ -2,8 +2,9 @@
 import { combineReducers } from "redux";
 
 import currentUser from "./currentUser";
+import guest from "./guest";
 
 // combineReducers을 통해서 변수 rootReducer 만들기
 // currentUser 파일 작성후 연결해줌
-const rootReducer = combineReducers({ currentUser });
+const rootReducer = combineReducers({ currentUser, guest });
 export default rootReducer;

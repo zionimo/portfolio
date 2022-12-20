@@ -9,6 +9,10 @@
  both:clear를 넣어서 float 영향을 받지않게 함 */
 }
 
-.my_margin_auto {
-  margin: auto;
+.my_center {
+  text-align: center;
+}
+
+.hint_text {
+  color: grey;
 }

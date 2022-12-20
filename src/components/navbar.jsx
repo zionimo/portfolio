@@ -47,7 +47,7 @@ const Navbar = () => {
               <Link to="/">홈</Link>
               <Link to="">마이페이지</Link>
               <Link to="">포스트</Link>
-              <Link to="">방명록</Link>
+              <Link to="/guest">방명록</Link>
               <Link to="">관리자 페이지</Link>
               <Link
                 onClick={() => {
@@ -63,7 +63,7 @@ const Navbar = () => {
               {/* 로그인 되어있지 않을 때 보이는 링크 */}
               <Link to="/">홈</Link>
               <Link>포스트</Link>
-              <Link to="/gest">방명록</Link>
+              <Link to="/guest">방명록</Link>
               <Link to="/loginform">로그인</Link>
             </div>
           )}

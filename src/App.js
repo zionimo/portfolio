@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LoginForm from "./pages/LoginForm";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Guest from "./pages/Guest";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path="/loginform" element={<LoginForm />}></Route>
+          <Route path="/guest" element={<Guest />}></Route>
         </Route>
       </Routes>
     </div>

@@ -117,7 +117,7 @@ const LoginForm = () => {
 
   return (
     <div className="loginForm">
-      <Container>
+      <Container className="mt-5">
         {/* Form은 항상 새로고침을 하기 때문에 초기화되는 것을 방지해주어야 한다 */}
         <Row>
           <Row>
@@ -141,15 +141,18 @@ const LoginForm = () => {
                 <Form.Label>비밀번호</Form.Label>
                 <Form.Control type="password" placeholder="비밀번호를 입력해주세요" onChange={(e) => setPassword(e.target.value)} />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
-              <Button variant="primary" type="submit" className="my_margin_auto">
-                로그인
-              </Button>
+              <div className="my_center">
+                <Button variant="primary" type="submit">
+                  로그인
+                </Button>
+                <hr />
+                <p className="hint_text">소셜아이디로 로그인</p>
+                <Button onClick={googleLogin} variant="outline-danger">
+                  구글로 로그인
+                </Button>
+              </div>
             </Form>
-            <Button onClick={googleLogin} variant="outline-danger">
-              구글로 로그인
-            </Button>
           </Col>
         </Row>
       </Container>
